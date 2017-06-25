@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+
+
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${jboss.server.log.dir}\\Sms3Step\\app.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${jboss.server.log.dir}\\Sms3Step\\%d{yyyyMM,aux}\\%d{yyyy-MM-dd}_app.log</fileNamePattern>
+            <maxHistory>500</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+	<!--<logger name="org.hibernate" level="debug"/> -->
+    <logger name="org.springframework" level="error" additivity="true"> 
+    	<appender-ref ref="FILE" />
+    </logger>
+    
+    <logger name="cat.nbtc" level="debug" additivity="true">
+    	<appender-ref ref="FILE" />
+    </logger> 
+    
+    <logger name="oracle.jdbc" level="warn"> 
+    	<appender-ref ref="FILE" />
+    </logger>
+    
+    <logger name="org.postgresql" level="warn"
+		additivity="true">
+		<appender-ref ref="FILE" />
+	</logger>
+	
+	<logger name="org.hibernate" level="error"	additivity="true">
+		<appender-ref ref="FILE" />
+	</logger>
+	
+	
+	<logger name="org.apache" level="error"
+		additivity="true">
+		<appender-ref ref="FILE" />
+	</logger>
+	
+	<logger name="com.fasterxml" level="error"
+		additivity="true">
+		<appender-ref ref="FILE" />
+	</logger>
+    
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</included>
