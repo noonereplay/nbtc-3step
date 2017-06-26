@@ -36,6 +36,9 @@
 		<appender-ref ref="FILE" />
 	</logger>
 	
+	<logger name="org.jsmpp" level="error"	additivity="true">
+		<appender-ref ref="FILE" />
+	</logger>
 	
 	<logger name="org.apache" level="error"
 		additivity="true">
