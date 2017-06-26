@@ -5,7 +5,4 @@
          version="3.1">
   <display-name>Sms 3 Step Web Application</display-name>
   
-  <welcome-file-list>
-  	<welcome-file>index</welcome-file>
-  </welcome-file-list>
 </web-app>

@@ -6,6 +6,7 @@ public class SmsRequest {
 	private String source;
 	private String message;
 	private String correlationId;
+	private String submitedBy;
 	
 	public String getTarget() {
 		return target;
@@ -31,12 +32,20 @@ public class SmsRequest {
 	public void setCorrelationId(String correlationId) {
 		this.correlationId = correlationId;
 	}
+	
+	
+	public String getSubmitedBy() {
+		return submitedBy;
+	}
+	public void setSubmitedBy(String submitedBy) {
+		this.submitedBy = submitedBy;
+	}
 	@Override
 	public String toString() {
 		return "SmsRequest [target=" + target + ", source=" + source + ", message=" + message + ", correlationId="
-				+ correlationId + "]";
+				+ correlationId + ", submitedBy=" + submitedBy + "]";
 	}
-	
+
 	
 	
 }

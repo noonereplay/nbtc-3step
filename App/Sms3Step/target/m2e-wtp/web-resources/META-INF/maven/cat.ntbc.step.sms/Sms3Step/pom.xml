@@ -4,7 +4,7 @@
 	<groupId>cat.ntbc.step.sms</groupId>
 	<artifactId>Sms3Step</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1-FINAL</version>
 	<name>Sms3Step Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
@@ -16,6 +16,10 @@
 		<logback.version>1.0.13</logback.version>
 		<jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
 		<jsmpp-camel.version>2.9.1</jsmpp-camel.version>
+		<spring-rabbit.version>1.5.5.RELEASE</spring-rabbit.version>
+		<!-- Hibernate / JPA -->
+		<hibernate.version>[5.2.10.Final,)</hibernate.version>
+		<dbcp2.version>[2.1.1,)</dbcp2.version>
 	</properties>
 
 
@@ -46,6 +50,34 @@
 		    <version>${spring.version}</version>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>		
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -96,10 +128,42 @@
             <artifactId>javax.servlet.jsp-api</artifactId>
             <version>2.3.1</version>
         </dependency>
+        
+        <!-- Spring RabbitMQ -->
+		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit</artifactId>
+			<version>${spring-rabbit.version}</version>
+		</dependency>
+		
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>${dbcp2.version}</version>
+		</dependency>
+		
+		<!-- ORACLE database driver -->
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.4</version>
+		</dependency>
 
 	</dependencies>
 	<build>
-		<finalName>Sms3Step</finalName>
+		<!--  <finalName>Sms3Step</finalName> -->
 		<plugins>
 			<!-- Eclipse project -->
 			<plugin>
