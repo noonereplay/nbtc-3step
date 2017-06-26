@@ -51,6 +51,8 @@
 	</rabbit:listener-container>
 	
 	
+	
+	<!-- JDBC -->
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
@@ -90,4 +92,12 @@
         such as when @Transactional methods are invoked -->
    <tx:annotation-driven />
 
+
+	<!--  Task Scheduler -->
+	
+	<task:annotation-driven executor="smsExecutor" scheduler="smsScheduler"/>
+	<task:executor id="smsExecutor" pool-size="10"/>
+	<task:scheduler id="smsScheduler" pool-size="10"/>
+	
+	
 </beans>
